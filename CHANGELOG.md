@@ -3,6 +3,109 @@
 <!-- `yarn release` will insert the existing changelog snippets here: -->
 <!-- NEXT RELEASE HERE -->
 
+## v44.16.3
+
+### GENERAL
+
+▶ [patch]
+This patch returns up the `quarantineUntil` field in the `workerManager.getWorker` and `workerManager.listWorkers` methods. This issue was first noticed in v44.15.0.
+
+## v44.16.2
+
+### GENERAL
+
+▶ [patch]
+This patch adds a new field to be logged out on a failed provision call. This field will be used to measure the provisioning failed count.
+
+### USERS
+
+▶ [patch] [#5503](https://github.com/taskcluster/taskcluster/issues/5503)
+Add missing task-rerun scope to github handler.
+
+▶ [patch] [#5506](https://github.com/taskcluster/taskcluster/issues/5506)
+Log debug information for incoming Github webhooks.
+
+▶ [patch] [#5501](https://github.com/taskcluster/taskcluster/issues/5501)
+This patch makes it so a user cannot click the `Terminate Worker` button on a Static or Standalone worker. This patch also moves the `Terminate Worker` button on the view individual worker page to the speed dial menu alongside the `Quarantine` button. These issues were first brought up in v44.15.0.
+
+### Automated Package Updates
+
+<details>
+<summary>1 Renovate updates</summary>
+
+* Update module golang.org/x/tools to v0.1.11 (147766abb)
+
+</details>
+
+## v44.16.1
+
+### GENERAL
+
+▶ [patch]
+This fixes the default worker state of a worker not known by worker manager to be `standalone` as opposed to `unmanaged` to be consistent with the rest of the project. This issue was first brought up in v44.16.0
+
+### USERS
+
+▶ [patch]
+Fix this error (`Function listWorkers takes options: continuationToken, limit, quarantined, workerState but was given isQuarantined`) while filtering workers based on quaratine status.
+
+## v44.16.0
+
+### GENERAL
+
+▶ [patch]
+Don't allow additional properties in `worker-response.yml` schema. Updated descriptions in `worker-response.yml` and `list-workers-response.yml` schemas to explain some default values that may occur in the case where the queue knows about the worker, but worker manager does not. Also, updated the GraphQL queries to extract additional needed data.
+
+▶ [patch]
+Fix schema validation issues.
+
+▶ [patch]
+Upgrade node to the latest LTS release, v16.15.1. Also upgrade `golangci-lint` to 1.46.2.
+
+▶ [patch]
+Upgrade to `go1.18.3` from `go1.18.2`.
+
+### DEPLOYERS
+
+▶ [patch] [#5042](https://github.com/taskcluster/taskcluster/issues/5042)
+Add a configuration option to disable CORS configuration for the queue's S3
+client. This is a step forward for supporting minio as a S3 backend.
+
+▶ [patch] [#5043](https://github.com/taskcluster/taskcluster/issues/5043)
+Add a configuration option to enable `s3ForcePathStyle` for the queue's S3 client
+
+### USERS
+
+▶ [minor] [#5085](https://github.com/taskcluster/taskcluster/issues/5085)
+Allow Taskcluster to rerun single task from github interface.
+
+▶ [patch]
+Replace rust-crypto by hmac-sha256 in the rust client to help with dependency deduplication
+
+▶ [patch]
+Update a few rust dependencies in the client crate to help reducing duplicates
+
+## v44.15.5
+
+### GENERAL
+
+▶ [patch]
+Handle some null checks with optional chaining. Also, ensure all data is extracted out during `workerManager.listWorkers()` calls.
+
+## v44.15.4
+
+### GENERAL
+
+▶ [patch]
+Fix arguments for `get_task_queue_wm_2` (`get_task_queue_wm` is now deprecated).
+
+## v44.15.3
+
+### USERS
+
+▶ [patch]
+Remove unneeded read access to `workers` table from `queue` service. Add read access to `task_queues` table to `worker_manager` service for `workerManager.getWorker()` method to prevent 500 permission denied SQL error.
+
 ## v44.15.2
 
 ### USERS

@@ -6317,6 +6317,39 @@
       },
       "migrationScript": "begin\n  revoke select on workers from $db_user_prefix$_queue; -- undoing an issue from v0073\n  grant select on task_queues to $db_user_prefix$_worker_manager;\nend\n",
       "version": 74
+    },
+    {
+      "description": "fix get_task_queue_wm args",
+      "methods": {
+        "get_task_queue_wm": {
+          "deprecated": true
+        },
+        "get_task_queue_wm_2": {
+          "args": "task_queue_id_in text, expires_in timestamptz",
+          "body": "begin\n  return query\n  select\n    task_queues.task_queue_id,\n    task_queues.expires,\n    task_queues.last_date_active,\n    task_queues.description,\n    task_queues.stability,\n    public.gen_random_uuid()\n  from task_queues\n  where\n    task_queues.task_queue_id = task_queue_id_in and\n    task_queues.expires > expires_in;\n  end",
+          "deprecated": false,
+          "description": "Get a non-expired task queue by task_queue_id.",
+          "mode": "read",
+          "returns": "table(task_queue_id text, expires timestamptz, last_date_active timestamptz, description text, stability text, etag uuid)",
+          "serviceName": "worker_manager"
+        }
+      },
+      "version": 75
+    },
+    {
+      "description": "get github check by check suite id and check run id",
+      "methods": {
+        "get_github_check_by_run_id": {
+          "args": "check_suite_id_in text, check_run_id_in text",
+          "body": "begin\n  return query\n  select\n    github_checks.task_group_id,\n    github_checks.task_id,\n    github_checks.check_suite_id,\n    github_checks.check_run_id\n  from github_checks\n  where\n    github_checks.check_suite_id = check_suite_id_in\n    and\n    github_checks.check_run_id = check_run_id_in\n    ;\nend",
+          "deprecated": false,
+          "description": "Get github check run id and check suite id",
+          "mode": "read",
+          "returns": "table (\n  task_group_id text,\n  task_id text,\n  check_suite_id text,\n  check_run_id text\n)",
+          "serviceName": "github"
+        }
+      },
+      "version": 76
     }
   ]
 }

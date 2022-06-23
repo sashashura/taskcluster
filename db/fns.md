@@ -17,6 +17,7 @@
    * [`delete_github_build`](#delete_github_build)
    * [`get_github_build`](#get_github_build)
    * [`get_github_builds`](#get_github_builds)
+   * [`get_github_check_by_run_id`](#get_github_check_by_run_id)
    * [`get_github_check_by_task_id`](#get_github_check_by_task_id)
    * [`get_github_integration`](#get_github_integration)
    * [`get_github_integrations`](#get_github_integrations)
@@ -147,7 +148,7 @@
    * [`get_non_stopped_workers_quntil_providers`](#get_non_stopped_workers_quntil_providers)
    * [`get_queue_worker_with_wm_join`](#get_queue_worker_with_wm_join)
    * [`get_queue_workers_with_wm_join`](#get_queue_workers_with_wm_join)
-   * [`get_task_queue_wm`](#get_task_queue_wm)
+   * [`get_task_queue_wm_2`](#get_task_queue_wm_2)
    * [`get_task_queues_wm`](#get_task_queues_wm)
    * [`get_worker_2`](#get_worker_2)
    * [`get_worker_pool_error`](#get_worker_pool_error)
@@ -337,6 +338,7 @@ Does nothing if the client does not exist.
 * [`delete_github_build`](#delete_github_build)
 * [`get_github_build`](#get_github_build)
 * [`get_github_builds`](#get_github_builds)
+* [`get_github_check_by_run_id`](#get_github_check_by_run_id)
 * [`get_github_check_by_task_id`](#get_github_check_by_task_id)
 * [`get_github_integration`](#get_github_integration)
 * [`get_github_integrations`](#get_github_integrations)
@@ -430,6 +432,21 @@ Get a github build. The returned table will have one or zero rows.
 * *Last defined on version*: 49
 
 Get github builds.
+
+### get_github_check_by_run_id
+
+* *Mode*: read
+* *Arguments*:
+  * `check_suite_id_in text`
+  * `check_run_id_in text`
+* *Returns*: `table`
+  * `   task_group_id text`
+  * `  task_id text`
+  * `  check_suite_id text`
+  * `  check_run_id text `
+* *Last defined on version*: 76
+
+Get github check run id and check suite id
 
 ### get_github_check_by_task_id
 
@@ -2327,7 +2344,7 @@ If the hashed session id does not exist, then an error code `P0002` will be thro
 * [`get_non_stopped_workers_quntil_providers`](#get_non_stopped_workers_quntil_providers)
 * [`get_queue_worker_with_wm_join`](#get_queue_worker_with_wm_join)
 * [`get_queue_workers_with_wm_join`](#get_queue_workers_with_wm_join)
-* [`get_task_queue_wm`](#get_task_queue_wm)
+* [`get_task_queue_wm_2`](#get_task_queue_wm_2)
 * [`get_task_queues_wm`](#get_task_queues_wm)
 * [`get_worker_2`](#get_worker_2)
 * [`get_worker_pool_error`](#get_worker_pool_error)
@@ -2555,14 +2572,12 @@ If the pagination arguments are both NULL, all rows are returned.
 Otherwise, page_size rows are returned at offset page_offset.
 This also performs an outer join with the worker_manager.worker table for more data.
 
-### get_task_queue_wm
+### get_task_queue_wm_2
 
 * *Mode*: read
 * *Arguments*:
   * `task_queue_id_in text`
   * `expires_in timestamptz`
-  * `page_size_in integer`
-  * `page_offset_in integer`
 * *Returns*: `table`
   * `task_queue_id text`
   * `expires timestamptz`
@@ -2570,7 +2585,7 @@ This also performs an outer join with the worker_manager.worker table for more d
   * `description text`
   * `stability text`
   * `etag uuid`
-* *Last defined on version*: 74
+* *Last defined on version*: 75
 
 Get a non-expired task queue by task_queue_id.
 
@@ -2857,6 +2872,7 @@ the return value is an empty set.
 ### deprecated methods
 
 * `get_non_stopped_workers_quntil(worker_pool_id_in text, worker_group_in text, worker_id_in text, page_size_in integer, page_offset_in integer)` (compatibility guaranteed until v46.0.0)
+* `get_task_queue_wm(task_queue_id_in text, expires_in timestamptz, page_size_in integer, page_offset_in integer)` (compatibility guaranteed until v46.0.0)
 * `get_worker_pool_with_capacity(worker_pool_id_in text)` (compatibility guaranteed until v46.0.0)
 * `get_worker_pools_with_capacity(page_size_in integer, page_offset_in integer)` (compatibility guaranteed until v46.0.0)
 * `update_worker_pool_with_capacity(worker_pool_id_in text, provider_id_in text, description_in text, config_in jsonb, last_modified_in timestamptz, owner_in text, email_on_error_in boolean)` (compatibility guaranteed until v46.0.0)

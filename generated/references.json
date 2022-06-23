@@ -66,8 +66,8 @@
           "uniqueItems": false
         },
         "capacity": {
-          "description": "Number of tasks this worker can handle at once",
-          "minimum": 1,
+          "description": "Number of tasks this worker can handle at once. A worker capacity of 0 means\nthe worker is not managed by worker manager and is only known to the queue, the\ntrue capacity is not known.\n",
+          "minimum": 0,
           "title": "Worker Capacity",
           "type": "integer"
         },
@@ -90,7 +90,7 @@
           "type": "string"
         },
         "providerId": {
-          "description": "The provider that had started the worker and responsible for managing it.\nCan be different from the provider that's currently in the worker pool config.\n",
+          "description": "The provider that had started the worker and responsible for managing it.\nCan be different from the provider that's currently in the worker pool config.\nA providerId of \"none\" is used when the worker is not managed by worker manager.\n",
           "maxLength": 38,
           "minLength": 1,
           "pattern": "^([a-zA-Z0-9-_]*)$",
@@ -116,12 +116,13 @@
           "uniqueItems": false
         },
         "state": {
-          "description": "A string specifying the state this worker is in so far as worker-manager knows.\nA \"requested\" worker is in the process of starting up, and if successful will enter\nthe \"running\" state once it has registered with the `registerWorker` API method.  A\n\"stopping\" worker is in the process of shutting down and deleting resources, while\na \"stopped\" worker is completely stopped.  Stopped workers are kept for historical\npurposes and are purged when they expire.  Note that some providers transition workers\ndirectly from \"running\" to \"stopped\".\n",
+          "description": "A string specifying the state this worker is in so far as worker-manager knows.\nA \"requested\" worker is in the process of starting up, and if successful will enter\nthe \"running\" state once it has registered with the `registerWorker` API method.  A\n\"stopping\" worker is in the process of shutting down and deleting resources, while\na \"stopped\" worker is completely stopped.  Stopped workers are kept for historical\npurposes and are purged when they expire.  Note that some providers transition workers\ndirectly from \"running\" to \"stopped\".\nAn \"standalone\" worker is a worker that is not managed by worker-manager, these workers\nare only known by the queue.\n",
           "enum": [
             "requested",
             "running",
             "stopping",
-            "stopped"
+            "stopped",
+            "standalone"
           ],
           "title": "State",
           "type": "string"
@@ -479,7 +480,7 @@
     "content": {
       "$id": "/schemas/worker-manager/v1/worker-full.json#",
       "$schema": "/schemas/common/metaschema.json#",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "description": "A complete worker definition.",
       "properties": {
         "capacity": {
@@ -1267,8 +1268,8 @@
             "additionalProperties": false,
             "properties": {
               "capacity": {
-                "description": "Number of tasks this worker can handle at once",
-                "minimum": 1,
+                "description": "Number of tasks this worker can handle at once. A worker capacity of 0 means\nthe worker is not managed by worker manager and is only known to the queue, the\ntrue capacity is not known.\n",
+                "minimum": 0,
                 "title": "Worker Capacity",
                 "type": "integer"
               },
@@ -1290,7 +1291,7 @@
                 "title": "Most Recent Task"
               },
               "providerId": {
-                "description": "The provider that had started the worker and responsible for managing it.\nCan be different from the provider that's currently in the worker pool config.\n",
+                "description": "The provider that had started the worker and responsible for managing it.\nCan be different from the provider that's currently in the worker pool config.\nA providerId of \"none\" is used when the worker is not managed by worker manager.\n",
                 "maxLength": 38,
                 "minLength": 1,
                 "pattern": "^([a-zA-Z0-9-_]*)$",
@@ -1304,12 +1305,13 @@
                 "type": "string"
               },
               "state": {
-                "description": "A string specifying the state this worker is in so far as worker-manager knows.\nA \"requested\" worker is in the process of starting up, and if successful will enter\nthe \"running\" state once it has registered with the `registerWorker` API method.  A\n\"stopping\" worker is in the process of shutting down and deleting resources, while\na \"stopped\" worker is completely stopped.  Stopped workers are kept for historical\npurposes and are purged when they expire.  Note that some providers transition workers\ndirectly from \"running\" to \"stopped\".\n",
+                "description": "A string specifying the state this worker is in so far as worker-manager knows.\nA \"requested\" worker is in the process of starting up, and if successful will enter\nthe \"running\" state once it has registered with the `registerWorker` API method.  A\n\"stopping\" worker is in the process of shutting down and deleting resources, while\na \"stopped\" worker is completely stopped.  Stopped workers are kept for historical\npurposes and are purged when they expire.  Note that some providers transition workers\ndirectly from \"running\" to \"stopped\".\nAn \"standalone\" worker is a worker that is not managed by worker-manager, these workers\nare only known by the queue.\n",
                 "enum": [
                   "requested",
                   "running",
                   "stopping",
-                  "stopped"
+                  "stopped",
+                  "standalone"
                 ],
                 "title": "State",
                 "type": "string"
@@ -1327,6 +1329,9 @@
                 "minLength": 1,
                 "pattern": "^([a-zA-Z0-9-_]*)$",
                 "type": "string"
+              },
+              "workerPoolId": {
+                "$ref": "task.json#/properties/workerPoolId"
               }
             },
             "required": [
@@ -6679,6 +6684,79 @@
   },
   {
     "content": {
+      "$id": "/schemas/github/v1/github-rerun-message.json#",
+      "$schema": "/schemas/common/metaschema.json#",
+      "additionalProperties": false,
+      "description": "Message reporting that a GitHub re-run task request has occurred\n",
+      "properties": {
+        "body": {
+          "description": "The raw body of github event (for version 1)\n",
+          "type": "object"
+        },
+        "checkRunId": {
+          "description": "Check run id",
+          "type": "number"
+        },
+        "checkSuiteId": {
+          "description": "Check suite id",
+          "type": "number"
+        },
+        "details": {
+          "description": "Metadata describing the push (for version 0)\n",
+          "type": "object"
+        },
+        "eventId": {
+          "description": "The GitHub webhook deliveryId. Extracted from the header 'X-GitHub-Delivery'\n",
+          "pattern": "^[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}$",
+          "type": "string"
+        },
+        "installationId": {
+          "description": "The installation which had an event.\n",
+          "type": "integer"
+        },
+        "organization": {
+          "description": "The GitHub `organization` which had an event.\n",
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^([a-zA-Z0-9-_%]*)$",
+          "type": "string"
+        },
+        "repository": {
+          "description": "The GitHub `repository` which had an event.\n",
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^([a-zA-Z0-9-_%]*)$",
+          "type": "string"
+        },
+        "tasks_for": {
+          "description": "The type of the event (for version 1)\n",
+          "type": "string"
+        },
+        "version": {
+          "description": "Message version",
+          "enum": [
+            1
+          ]
+        }
+      },
+      "required": [
+        "version",
+        "organization",
+        "repository",
+        "installationId",
+        "eventId",
+        "body",
+        "checkRunId",
+        "checkSuiteId",
+        "tasks_for"
+      ],
+      "title": "GitHub Re-run Request Message",
+      "type": "object"
+    },
+    "filename": "schemas/github/v1/github-rerun-message.json"
+  },
+  {
+    "content": {
       "$id": "/schemas/github/v1/github-release-message.json#",
       "$schema": "/schemas/common/metaschema.json#",
       "additionalProperties": false,
@@ -9887,8 +9965,14 @@
             "aws_endpoint": {
               "type": "string"
             },
+            "aws_force_path_style": {
+              "type": "boolean"
+            },
             "aws_secret_access_key": {
               "type": "string"
+            },
+            "aws_skip_cors_configuration": {
+              "type": "boolean"
             },
             "debug": {
               "title": "node debug env var",
@@ -18555,6 +18639,35 @@
           "type": "topic-exchange"
         },
         {
+          "description": "When a GitHub check_run event with action=\"rerequested\" is posted \nit will be broadcast on this exchange with the designated \n`organization` and `repository`\nin the routing-key along with event specific metadata in the payload.",
+          "exchange": "rerun",
+          "name": "rerun",
+          "routingKey": [
+            {
+              "constant": "primary",
+              "multipleWords": false,
+              "name": "routingKeyKind",
+              "required": true,
+              "summary": "Identifier for the routing-key kind. This is always `\"primary\"` for the formalized routing key."
+            },
+            {
+              "multipleWords": false,
+              "name": "organization",
+              "required": true,
+              "summary": "The GitHub `organization` which had an event. All periods have been replaced by % - such that foo.bar becomes foo%bar - and all other special characters aside from - and _ have been stripped."
+            },
+            {
+              "multipleWords": false,
+              "name": "repository",
+              "required": true,
+              "summary": "The GitHub `repository` which had an event.All periods have been replaced by % - such that foo.bar becomes foo%bar - and all other special characters aside from - and _ have been stripped."
+            }
+          ],
+          "schema": "v1/github-rerun-message.json#",
+          "title": "GitHub re-run task Event",
+          "type": "topic-exchange"
+        },
+        {
           "description": "supposed to signal that taskCreate API has been called for every task in the task group\nfor this particular repo and this particular organization\ncurrently used for creating initial status indicators in GitHub UI using Statuses API.\nThis particular exchange can also be bound to RabbitMQ queues by custom routes - for that,\nPass in the array of routes as a second argument to the publish method. Currently, we do\nuse the statuses routes to bind the handler that creates the initial status.",
           "exchange": "task-group-creation-requested",
           "name": "taskGroupCreationRequested",
@@ -18642,7 +18755,7 @@
           "args": [
           ],
           "category": "Github Service",
-          "description": "Capture a GitHub event and publish it via pulse, if it's a push,\nrelease or pull request.",
+          "description": "Capture a GitHub event and publish it via pulse, if it's a push,\nrelease, check run or pull request.",
           "method": "post",
           "name": "githubWebHookConsumer",
           "query": [
