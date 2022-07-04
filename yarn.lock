@@ -287,12 +287,19 @@
   dependencies:
     "@hapi/hoek" "9.x.x"
 
-"@hapi/boom@9.x.x", "@hapi/boom@^9.1.4":
+"@hapi/boom@9.x.x":
   version "9.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-9.1.4.tgz#1f9dad367c6a7da9f8def24b4a986fc5a7bd9db6"
   integrity sha512-Ls1oH8jaN1vNsqcaHVYJrKmgMcKsC1wcp8bujvXrHaAqD2iDYq3HoOwsxwo09Cuda5R5nC0o0IxlrlTuvPuzSw==
   dependencies:
     "@hapi/hoek" "9.x.x"
+
+"@hapi/boom@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-10.0.0.tgz#3624831d0a26b3378423b246f50eacea16e04a08"
+  integrity sha512-1YVs9tLHhypBqqinKQRqh7FUERIolarQApO37OWkzD+z6y6USi871Sv746zBPKcIOBuI6g6y4FrwX87mmJ90Gg==
+  dependencies:
+    "@hapi/hoek" "10.x.x"
 
 "@hapi/cryptiles@5.x.x":
   version "5.1.0"
@@ -300,6 +307,11 @@
   integrity sha512-fo9+d1Ba5/FIoMySfMqPBR/7Pa29J2RsiPrl7bkwo5W5o+AN1dAYQRi4SPrPwwVxVGKjgLOEWrsvt1BonJSfLA==
   dependencies:
     "@hapi/boom" "9.x.x"
+
+"@hapi/hoek@10.x.x":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-10.0.0.tgz#b17be58febab7dbc60cde5f522da197ccde12713"
+  integrity sha512-CeNFz1JcLZ5xE8Vc9aau37cgHw9bxXqSDK/D55GF2GAOv0n0XjyyjSodHtKahB7A1tV3FlgCpijp3zkSITmBdA==
 
 "@hapi/hoek@9.x.x":
   version "9.3.0"
@@ -356,23 +368,27 @@
     underscore "~1.13.1"
     underscore.deep "~0.5.1"
 
-"@ladjs/i18n@^7.2.6":
-  version "7.2.6"
-  resolved "https://registry.yarnpkg.com/@ladjs/i18n/-/i18n-7.2.6.tgz#60f298eab79f900264c96f784af6dc41125ce75e"
-  integrity sha512-rgCYbDz18ADMjQox09J0G45L8LankQgt7QJqiaPh7dAps/hY/7NB8lotVh8TvFt26jJXPvCErAEsGe2clp/YOg==
+"@ladjs/country-language@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ladjs/country-language/-/country-language-1.0.1.tgz#fa27eef9682505569dd97f3582f49a0169206d21"
+  integrity sha512-ZK5c0ZUHW2fbAKewaEatpn7jHx6mfZgNJebKoULSEkSrXTPOvO+xYgYbGAHyzWwUndfLtOB0Ojg827bzAoT0sA==
+
+"@ladjs/i18n@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@ladjs/i18n/-/i18n-8.0.1.tgz#fb6ae221b627e7a4d499f336a09f03ded2ab523b"
+  integrity sha512-7+C6IIf/THrrAhSPPlmd3DIl6Ias7YFr37MeIUxXaipLxNcMnQ7oHIRnznwJ78ZwnhcViTa27rfshbtaH9uD5g==
   dependencies:
-    "@hapi/boom" "^9.1.4"
-    "@ladjs/country-language" "^0.2.1"
+    "@hapi/boom" "^10.0.0"
+    "@ladjs/country-language" "^1.0.1"
     boolean "3.2.0"
-    debug "^4.3.3"
-    i18n "^0.14.1"
+    i18n "^0.15.0"
     i18n-locales "^0.0.5"
     lodash "^4.17.21"
     multimatch "5"
     punycode "^2.1.1"
-    qs "^6.10.3"
+    qs "^6.11.0"
     titleize "2"
-    tlds "^1.230.0"
+    tlds "^1.231.0"
 
 "@messageformat/core@^3.0.0":
   version "3.0.1"
@@ -2011,10 +2027,10 @@ commander@^2.19.0, commander@^2.20.3:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
-  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
+commander@^6.1.0:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
+  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
 
 commander@^9.0.0:
   version "9.3.0"
@@ -2531,19 +2547,18 @@ ejs@^3.1.7:
   dependencies:
     jake "^10.8.5"
 
-email-templates@^8.0.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/email-templates/-/email-templates-8.1.0.tgz#837fc3d4e2bc1b0ca7da9d8ceac5d9407d2a04ca"
-  integrity sha512-TbUIfPrbMSqhVry6H9vt+BjjzKx2E9L0B2pSB25cZpMPP5DjP/KV3XCHN1mMnOc4iqVbhv5T7K2fcPuf5tYu8w==
+email-templates@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/email-templates/-/email-templates-10.0.0.tgz#244f5c5a5054020cd0498511c081ed0be24c391a"
+  integrity sha512-Xxq9POWoSXDRfBVlepI2VZbzebnfvSmBM1QwvBD8AYD1teyiVS2Ye7+/H3ciz03QhMpUXsDvAz0dCEHGuWdtnw==
   dependencies:
-    "@ladjs/i18n" "^7.2.6"
+    "@ladjs/i18n" "^8.0.0"
     consolidate "^0.16.0"
-    debug "^4.3.4"
     get-paths "^0.0.7"
-    html-to-text "^8.1.0"
-    juice "^7.0.0"
+    html-to-text "^8.2.0"
+    juice "^8.0.0"
     lodash "^4.17.21"
-    nodemailer "^6.7.2"
+    nodemailer "^6.7.6"
     preview-email "^3.0.5"
 
 emoji-regex@^8.0.0:
@@ -3515,7 +3530,7 @@ html-escaper@^2.0.0:
   resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-2.0.2.tgz#dfd60027da36a36dfcbe236262c00a5822681453"
   integrity sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==
 
-html-to-text@8.2.0, html-to-text@^8.1.0:
+html-to-text@8.2.0, html-to-text@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/html-to-text/-/html-to-text-8.2.0.tgz#8b35e280ba7fc27710b7aa76d4500aab30731924"
   integrity sha512-CLXExYn1b++Lgri+ZyVvbUEFwzkLZppjjZOwB7X1qv2jIi8MrMEvxWX5KQ7zATAzTvcqgmtO00M2kCRMtEdOKQ==
@@ -3618,10 +3633,10 @@ i18n-locales@^0.0.5:
   dependencies:
     "@ladjs/country-language" "^0.2.1"
 
-i18n@^0.14.1:
-  version "0.14.2"
-  resolved "https://registry.yarnpkg.com/i18n/-/i18n-0.14.2.tgz#a583378f21072314774f8c45ea15799705ca93f4"
-  integrity sha512-f/6Ns2skl6KrpumZsE0A4TaxiEoJRi3Ovko0O+NuD92Ot2sLICpw6Iy+04ph/4tfF7koAWVYElBJ4oftpyhhxw==
+i18n@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/i18n/-/i18n-0.15.0.tgz#dca7a498a4371874db01f6610381a412897306eb"
+  integrity sha512-TUOkuFbl8Y/q7zF0tHdtpk1/TtxH0T+Drp2NFrHhmN1Qs0Sob9/0uVLS2BPVkEXNh2jZrimOiFJk+tkaOumzog==
   dependencies:
     "@messageformat/core" "^3.0.0"
     debug "^4.3.3"
@@ -4084,13 +4099,13 @@ jstransformer@1.0.0:
     is-promise "^2.0.0"
     promise "^7.0.1"
 
-juice@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/juice/-/juice-7.0.0.tgz#509bed6adbb6e4bbaa7fbfadac4e2e83e8c89ba3"
-  integrity sha512-AjKQX31KKN+uJs+zaf+GW8mBO/f/0NqSh2moTMyvwBY+4/lXIYTU8D8I2h6BAV3Xnz6GGsbalUyFqbYMe+Vh+Q==
+juice@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/juice/-/juice-8.0.0.tgz#ac77d3372373409b06a875aee425b9d381f645fe"
+  integrity sha512-LRCfXBOqI1wt+zYR/5xwDnf+ZyiJiDt44DGZaBSAVwZWyWv3BliaiGTLS6KCvadv3uw6XGiPPFcTfY7CdF7Z/Q==
   dependencies:
     cheerio "^1.0.0-rc.3"
-    commander "^5.1.0"
+    commander "^6.1.0"
     mensch "^0.3.4"
     slick "^1.12.2"
     web-resource-inliner "^5.0.0"
@@ -4838,10 +4853,15 @@ nodemailer@6.7.3:
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.7.3.tgz#b73f9a81b9c8fa8acb4ea14b608f5e725ea8e018"
   integrity sha512-KUdDsspqx89sD4UUyUKzdlUOper3hRkDVkrKh/89G+d9WKsU5ox51NWS4tB1XR5dPUdR4SP0E3molyEfOvSa3g==
 
-nodemailer@^6.6.1, nodemailer@^6.6.3, nodemailer@^6.7.2:
+nodemailer@^6.6.1, nodemailer@^6.6.3:
   version "6.7.5"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.7.5.tgz#b30b1566f5fa2249f7bd49ced4c58bec6b25915e"
   integrity sha512-6VtMpwhsrixq1HDYSBBHvW0GwiWawE75dS3oal48VqRhUvKJNnKnJo2RI/bCVQubj1vgrgscMNW4DHaD6xtMCg==
+
+nodemailer@^6.7.6:
+  version "6.7.6"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.7.6.tgz#d3de8f644eaa0dad784d1be1375c596de492f3fc"
+  integrity sha512-/6KF/umU7r7X21Y648/yiRLrgkfz0dmpyuo4BfgYWIpnT/jCbkPTvegMfxCsDAu+O810p2L1BGXieMTPp3nJVA==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
@@ -5535,7 +5555,7 @@ qs@6.10.3, qs@^6.7.0, qs@^6.9.4:
   dependencies:
     side-channel "^1.0.4"
 
-qs@^6.10.1, qs@^6.10.3, qs@^6.9.6:
+qs@^6.10.1, qs@^6.11.0, qs@^6.9.6:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
   integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
@@ -6299,52 +6319,47 @@ tar-stream@^2.0.0:
     readable-stream "^3.1.1"
 
 "taskcluster-client@link:clients/client":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
+  dependencies:
+    debug "^4.1.1"
+    got "^11.8.1"
+    hawk "^9.0.1"
+    lodash "^4.17.4"
+    slugid "^3.0.0"
+    taskcluster-lib-urls "^13.0.0"
 
 "taskcluster-db@link:db":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-api@link:libraries/api":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-app@link:libraries/app":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-azqueue@link:libraries/azqueue":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-config@link:libraries/config":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-iterate@link:libraries/iterate":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-loader@link:libraries/loader":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-monitor@link:libraries/monitor":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-postgres@link:libraries/postgres":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-pulse@link:libraries/pulse":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 "taskcluster-lib-references@link:libraries/references":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 taskcluster-lib-scopes@^11.0.0:
   version "11.0.0"
@@ -6354,8 +6369,7 @@ taskcluster-lib-scopes@^11.0.0:
     fast-json-stable-stringify "^2.1.0"
 
 "taskcluster-lib-testing@link:libraries/testing":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 taskcluster-lib-urls@^13.0.0:
   version "13.0.1"
@@ -6363,8 +6377,7 @@ taskcluster-lib-urls@^13.0.0:
   integrity sha512-WrhKMbiWmpPrB0vbzLZq4W35mhdPVLklZY+qrBoI7KQzFAjO/qsgS8ssHL6eYmvBf4fE7C+C9ZFxQpQOUynQvg==
 
 "taskcluster-lib-validate@link:libraries/validate":
-  version "0.0.0"
-  uid ""
+  version "44.17.0"
 
 test-exclude@^6.0.0:
   version "6.0.0"
@@ -6425,7 +6438,7 @@ titleize@2:
   resolved "https://registry.yarnpkg.com/titleize/-/titleize-2.1.0.tgz#5530de07c22147a0488887172b5bd94f5b30a48f"
   integrity sha512-m+apkYlfiQTKLW+sI4vqUkwMEzfgEUEYSqljx1voUE3Wz/z1ZsxyzSxvH2X8uKVrOp7QkByWt0rA6+gvhCKy6g==
 
-tlds@1.231.0, tlds@^1.230.0:
+tlds@1.231.0, tlds@^1.231.0:
   version "1.231.0"
   resolved "https://registry.yarnpkg.com/tlds/-/tlds-1.231.0.tgz#93880175cd0a06fdf7b5b5b9bcadff9d94813e39"
   integrity sha512-L7UQwueHSkGxZHQBXHVmXW64oi+uqNtzFt2x6Ssk7NVnpIbw16CRs4eb/jmKOZ9t2JnqZ/b3Cfvo97lnXqKrhw==
