@@ -41,7 +41,7 @@ require (
 	github.com/taskcluster/taskcluster-lib-urls v13.0.1+incompatible
 	github.com/tent/hawk-go v0.0.0-20161026210932-d341ea318957
 	github.com/xeipuuv/gojsonschema v1.2.0
-	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
+	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa
 	golang.org/x/net v0.0.0-20220624214902-1bab6f366d9e
 	golang.org/x/sys v0.0.0-20220627191245-f75cf1eec38b
 	golang.org/x/tools v0.1.11
