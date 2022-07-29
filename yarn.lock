@@ -86,11 +86,11 @@
     xss "^1.0.8"
 
 "@azure/abort-controller@^1.0.0":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@azure/abort-controller/-/abort-controller-1.0.4.tgz#fd3c4d46c8ed67aace42498c8e2270960250eafd"
-  integrity sha512-lNUmDRVGpanCsiUN3NWxFTdwmdFI53xwhkTFfHDGTYk46ca7Ind3nanJc+U6Zj9Tv+9nTCWRBscWEW1DyKOpTw==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@azure/abort-controller/-/abort-controller-1.1.0.tgz#788ee78457a55af8a1ad342acb182383d2119249"
+  integrity sha512-TrRLIoSQVzfAJX9H1JeFjzAoDGcoK1IYX1UImfceTZpsyYfWr09Ss1aHW1y5TrrR3iq6RZLBwJ3E24uwPhwahw==
   dependencies:
-    tslib "^2.0.0"
+    tslib "^2.2.0"
 
 "@azure/arm-compute@^16.0.0":
   version "16.5.0"
@@ -134,9 +134,9 @@
     tslib "^1.10.0"
 
 "@azure/ms-rest-js@^2.0.4", "@azure/ms-rest-js@^2.0.5", "@azure/ms-rest-js@^2.2.0":
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/@azure/ms-rest-js/-/ms-rest-js-2.6.1.tgz#4f94688a750d51afcbab4b55d6ecb9d3df4ddd94"
-  integrity sha512-LLi4jRe/qy5IM8U2CkoDgSZp2OH+MgDe2wePmhz8uY84Svc53EhHaamVyoU6BjjHBxvCRh1vcD1urJDccrxqIw==
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@azure/ms-rest-js/-/ms-rest-js-2.6.2.tgz#185a9d643ea55c696134af76a5c6026c94e26217"
+  integrity sha512-0/8rOxAoR9M3qKUdbGOIYtHtQkm4m5jdoDNdxTU0DkOr84KwyAdJuW/RfjJinGyig4h73DNF0rdCl6XowgCYcg==
   dependencies:
     "@azure/core-auth" "^1.1.4"
     abort-controller "^3.0.0"
@@ -3343,7 +3343,7 @@ googleapis@^73.0.0:
     google-auth-library "^7.0.2"
     googleapis-common "^5.0.2"
 
-got@^11.7.0:
+got@^11.7.0, got@^11.8.1:
   version "11.8.5"
   resolved "https://registry.yarnpkg.com/got/-/got-11.8.5.tgz#ce77d045136de56e8f024bebb82ea349bc730046"
   integrity sha512-o0Je4NvQObAuZPHLFoRSkdG2lTgtcynqymzg2Vupdx6PorhaT5MCbIyXG6d4D94kk8ZG57QeosgdiqfJWhEhlQ==
@@ -3488,7 +3488,7 @@ hashids@^2.0.0:
   resolved "https://registry.yarnpkg.com/hashids/-/hashids-2.2.10.tgz#82f45538cf03ce73e31b78d1abe78d287cf760c4"
   integrity sha512-nXnYums7F8B5Y+GSThutLPlKMaamW1yjWNZVt0WModiJfdjaDZHnhYTWblS+h1OoBx3yjwiBwxldPP3nIbFSSA==
 
-hawk@9.0.1:
+hawk@9.0.1, hawk@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/hawk/-/hawk-9.0.1.tgz#0be51769103e76fe97a97ae7fa356c313bb93160"
   integrity sha512-H2E+5ATFEXmorgVzYl3NzG3PCo2e+euYrHDnRpLLdOtJrQHGRXrJT9/joWnrkHCtzDZkaNoLXg/+TsSkD06eNg==
@@ -3719,7 +3719,7 @@ inquirer@^8.0.0:
 ip-regex@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
-  integrity sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=
+  integrity sha512-58yWmlHpp7VYfcdTwMTvwMmqx/Elfxjd9RXTDyMsbL7lLWmhMylLEqiYVLKuLzOZqVgiWXD9MfR62Vv89VRxkw==
 
 ipaddr.js@1.9.1:
   version "1.9.1"
@@ -4286,7 +4286,7 @@ lodash.truncate@^4.4.2:
   resolved "https://registry.yarnpkg.com/lodash.truncate/-/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
 
-lodash@4.17.21, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.17.5:
+lodash@4.17.21, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -5393,9 +5393,9 @@ pseudomap@^1.0.1, pseudomap@^1.0.2:
   integrity sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==
 
 psl@^1.1.28:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
-  integrity sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/psl/-/psl-1.9.0.tgz#d0df2a137f00794565fcaf3b2c00cd09f8d5a5a7"
+  integrity sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==
 
 pug-attrs@^3.0.0:
   version "3.0.0"
@@ -6017,6 +6017,13 @@ slugid@^2.0.0:
     uuid "^3.2.1"
     uuid-parse "^1.0.0"
 
+slugid@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/slugid/-/slugid-3.0.0.tgz#57cb692641a20feb4a1d774b2ad11594c9aa6125"
+  integrity sha512-MIir9SJS6BQFjFg8DHGMgPkDg21huT0+kYHiS6NkkWZXHSEdgIECo3nUVEG3GDkmecBTy+zRs6pCvPhpk4bKcg==
+  dependencies:
+    uuid "^8.3.2"
+
 snake-case@^3.0.3:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/snake-case/-/snake-case-3.0.4.tgz#4f2bbd568e9935abdfd593f34c691dadb49c452c"
@@ -6285,40 +6292,47 @@ tar-stream@^2.0.0:
     readable-stream "^3.1.1"
 
 "taskcluster-client@link:clients/client":
-  version "0.0.0"
+  version "44.17.2"
+  dependencies:
+    debug "^4.1.1"
+    got "^11.8.1"
+    hawk "^9.0.1"
+    lodash "^4.17.4"
+    slugid "^3.0.0"
+    taskcluster-lib-urls "^13.0.0"
 
 "taskcluster-db@link:db":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-api@link:libraries/api":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-app@link:libraries/app":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-azqueue@link:libraries/azqueue":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-config@link:libraries/config":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-iterate@link:libraries/iterate":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-loader@link:libraries/loader":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-monitor@link:libraries/monitor":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-postgres@link:libraries/postgres":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-pulse@link:libraries/pulse":
-  version "44.17.0"
+  version "44.17.2"
 
 "taskcluster-lib-references@link:libraries/references":
-  version "44.17.0"
+  version "44.17.2"
 
 taskcluster-lib-scopes@^11.0.0:
   version "11.0.0"
@@ -6328,7 +6342,7 @@ taskcluster-lib-scopes@^11.0.0:
     fast-json-stable-stringify "^2.1.0"
 
 "taskcluster-lib-testing@link:libraries/testing":
-  version "44.17.0"
+  version "44.17.2"
 
 taskcluster-lib-urls@^13.0.0:
   version "13.0.1"
@@ -6336,7 +6350,7 @@ taskcluster-lib-urls@^13.0.0:
   integrity sha512-WrhKMbiWmpPrB0vbzLZq4W35mhdPVLklZY+qrBoI7KQzFAjO/qsgS8ssHL6eYmvBf4fE7C+C9ZFxQpQOUynQvg==
 
 "taskcluster-lib-validate@link:libraries/validate":
-  version "44.17.0"
+  version "44.17.2"
 
 test-exclude@^6.0.0:
   version "6.0.0"
@@ -6470,15 +6484,15 @@ tslib@^1.10.0, tslib@^1.9.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
-  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
-
 tslib@^2.0.3, tslib@~2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
+
+tslib@^2.1.0, tslib@^2.2.0, tslib@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
+  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
