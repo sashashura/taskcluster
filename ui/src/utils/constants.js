@@ -16,7 +16,9 @@ import FileImageIcon from 'mdi-react/FileImageIcon';
 import FileMusicIcon from 'mdi-react/FileMusicIcon';
 import FileIcon from 'mdi-react/FileIcon';
 import AccountHeartOutlineIcon from 'mdi-react/AccountHeartOutlineIcon';
-import { join } from 'path';
+// not imported in vite
+// import { join } from 'path';
+const join = (...args) => args.join('/'); // shameless polyfill
 
 // eslint-disable-next-line import/prefer-default-export
 export const ARTIFACTS_SHOW_MAX = 10;
